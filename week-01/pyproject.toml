@@ -1,0 +1,28 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "agent-engineering-week-01"
+version = "0.1.0"
+description = "Week 1 lab: a small streaming LLM chat client"
+requires-python = ">=3.11"
+dependencies = [
+  "openai>=2.0.0,<3.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0.0,<9.0.0",
+]
+
+[project.scripts]
+week1-chat = "week01.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/week01"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+
